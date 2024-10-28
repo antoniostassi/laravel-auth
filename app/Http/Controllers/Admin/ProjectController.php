@@ -68,7 +68,10 @@ class ProjectController extends Controller
             'label_tag' => 'nullable|min:3|max:15',
             'price' => 'nullable|integer|min:0|max:10000',
             'completed' => 'nullable'
-        ]);
+        ], [
+            'description.min' => 'La descrizione dev\'essere di almeno 10 caratteri',
+        ]
+        );
 
         $data['completed'] = isset($data['completed']); // Se all'interno di data['completed'] c'è qualcosa, allora sarà vero ( poiché checkbox ), altrimenti nulla
         $data['slug'] = str()->slug($data['name']);
