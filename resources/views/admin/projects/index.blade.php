@@ -28,6 +28,7 @@
             <td>{{$project->price}}</td>
             <td>{{$project->completed}}</td>
             <td><a class="btn btn-primary" href="{{route('admin.projects.show', $project->id)}}">Visualizza</a></td>
+            <td><a class="btn btn-primary" href="{{route('admin.projects.edit', $project->id)}}">Modifica</a></td>
         </tr>
         @endforeach
       
