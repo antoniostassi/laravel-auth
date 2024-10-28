@@ -14,6 +14,7 @@
         <th scope="col">Price</th>
         <th scope="col">Completed</th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -40,5 +41,9 @@
 <style>
     tr:hover {
         cursor:pointer;
+    }
+    
+    td,th {
+        font-size:0.9rem;
     }
 </style>
