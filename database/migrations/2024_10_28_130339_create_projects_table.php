@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('description', 1024);
             $table->date('creation_date');
             $table->date('expiring_date')->nullable();
-            $table->string('label_tag')->nullable();
+            $table->string('label_tag', 15)->nullable();
             $table->integer('price')->unsigned()->default(0);
             $table->boolean('completed')->default(false);
             $table->timestamps();
