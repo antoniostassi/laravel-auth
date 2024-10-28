@@ -15,15 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        User::truncate();
-        
-        User::factory()->create([
-            'name' => 'Alessio',
-            'email' => 'alessio@boolean.careers',
-        ]);
-
         $this->call([
-            PostSeeder::class
+            ProjectSeeder::class
         ]);
     }
 }
