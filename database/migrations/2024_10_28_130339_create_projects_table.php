@@ -11,15 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('project', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 64);
+            $table->string('name', 128);
+            $table->string('slug', 128);
             $table->string('description', 1024);
             $table->date('creation_date');
             $table->date('expiring_date')->nullable();
             $table->string('label_tag')->nullable();
             $table->integer('price')->unsigned()->default(0);
-            $table->bool('completed')->default(false);
+            $table->boolean('completed')->default(false);
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('project');
+        Schema::dropIfExists('projects');
     }
 };
