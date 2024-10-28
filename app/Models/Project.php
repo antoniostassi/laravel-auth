@@ -11,7 +11,9 @@ class Project extends Model
     protected $fillable = [
         // Mass Assignment
         'name',
+        'slug',
         'description',
+        'creation_date',
         'expiring_date',
         'label_tag',
         'price',
