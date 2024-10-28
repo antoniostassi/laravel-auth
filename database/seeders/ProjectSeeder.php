@@ -29,7 +29,7 @@ class ProjectSeeder extends Seeder
                 'slug' => $sluggedName,
                 'creation_date' => date('Y/m/d h/i/m'),
                 'expiring_date' => fake()->dateTimeThisMonth('+30 days'),
-                'label_tag' => fake()->sentence(),
+                'label_tag' => fake()->word(),
                 'price' => rand(0, 1000),
                 'completed' => fake()->boolean(),
             ]);
