@@ -26,6 +26,7 @@ class ProjectController extends Controller
     public function create()
     {
         //
+        return view('admin.projects.create');
     }
 
     /**
@@ -34,6 +35,23 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         //
+        $newData = $request->validate([
+            'name' => 'required|min:3|max:255',
+            'description' => 'required|min:3|max:1024',
+            'expiring_date' => 'nullable',
+            'label_tag' => 'nullable|min:3|max:15',
+            'price' => 'integer|min:0|max:10000'
+        ]);
+
+        $todayDate = date("Y-m-d H:i:s");
+        $newSlug = str()->slug($request->name);
+        $newData['slug'] = $newSlug; // Slug del nome
+        $newData['creation_date'] = $todayDate; // Data di oggi
+        $newData['completed'] = false;
+
+        $project = Project::create($newData);
+
+        return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
@@ -66,7 +84,7 @@ class ProjectController extends Controller
             'creation_date' => 'required',
             'expiring_date' => 'nullable',
             'label_tag' => 'nullable|min:3|max:15',
-            'price' => 'nullable|integer|min:0|max:10000',
+            'price' => 'integer|min:0|max:10000',
             'completed' => 'nullable'
         ], [
             'description.min' => 'La descrizione dev\'essere di almeno 10 caratteri',
