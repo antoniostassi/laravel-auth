@@ -2,6 +2,8 @@
 
 @section('main-content')
 
+<a href="{{route('admin.projects.create')}}" class="btn btn-success mb-2">+ Crea un nuovo Progetto</a>
+
 <table class="table table-hover">
     <thead class="thead-dark">
       <tr>
