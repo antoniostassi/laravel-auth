@@ -15,6 +15,7 @@
         <th scope="col">Completed</th>
         <th scope="col"></th>
         <th scope="col"></th>
+        <th scope="col"></th>
       </tr>
     </thead>
     <tbody>
@@ -29,7 +30,14 @@
             <td>{{$project->price}}</td>
             <td>{{$project->completed}}</td>
             <td><a class="btn btn-primary" href="{{route('admin.projects.show', $project->id)}}">Visualizza</a></td>
-            <td><a class="btn btn-primary" href="{{route('admin.projects.edit', $project->id)}}">Modifica</a></td>
+            <td><a class="btn btn-warning" href="{{route('admin.projects.edit', $project->id)}}">Modifica</a></td>
+            <td>
+              <form action="{{route('admin.projects.destroy', $project->id)}}" class="d-inline-block" method="post" onsubmit="return confirm('Are you sure?');">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-danger">Elimina</button>
+              </form>
+            </td>
         </tr>
         @endforeach
       
