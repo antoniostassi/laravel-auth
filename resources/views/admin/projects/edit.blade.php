@@ -44,8 +44,8 @@
     </div>
 
     <div class="mb-3">
-        <label for="price" class="form-label">Prezzo:</label>
-        <input type="number" value='{{$project->price}}' class="form-control" id="price" name="price" placeholder="Inserisci un prezzo">
+        <label for="price" class="form-label">Prezzo: <span class="text-danger">*</span></label>
+        <input type="number" value='{{$project->price}}' class="form-control" id="price" name="price" placeholder="Inserisci un prezzo" required max="10000" min="0">
     </div>
 
     <div class="mb-3 form-check">
